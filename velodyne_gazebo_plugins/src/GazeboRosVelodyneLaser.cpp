@@ -160,7 +160,7 @@ void GazeboRosVelodyneLaser::Load(sensors::SensorPtr _parent, sdf::ElementPtr _s
   // Advertise publisher with a custom callback queue
   if (topic_name_ != "") {
     ros::AdvertiseOptions ao = ros::AdvertiseOptions::create<sensor_msgs::PointCloud2>(
-        topic_name_, 1,
+        "/cloud_in", 1,
         boost::bind(&GazeboRosVelodyneLaser::ConnectCb, this),
         boost::bind(&GazeboRosVelodyneLaser::ConnectCb, this),
         ros::VoidPtr(), &laser_queue_);
